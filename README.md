@@ -1,37 +1,59 @@
-🏭 Automated Industrial Email Assistant
-Bu proje, sanayi tipi sac ve çelik envanter yönetimi için geliştirilmiş, Ollama (Llama 3.2) tabanlı bir otomatik e-posta yanıt sistemidir. Müşterilerden gelen teknik stok sorgularını (GZR, RPKK, S355MC vb.) yerel bir yapay zeka modeli kullanarak analiz eder ve saniyeler içinde kurumsal bir dille yanıtlar.
+# 🏗️ Industrial-LLM: Heavy Industry Email Automation Agent
 
-🌟 Öne Çıkan Özellikler
-Yerel Yapay Zeka (Local LLM): Veri gizliliğini korumak amacıyla tüm işlemler Ollama üzerinden yerel makinede yürütülür.
+Bu proje; ağır sanayi ve sac ticareti sektöründeki müşteri iletişim süreçlerini modernize etmek amacıyla geliştirilmiş, **Local LLM (Yerel Büyük Dil Modeli)** tabanlı bir uçtan uca otomasyon sistemidir. Sistem, gelen teknik e-postaları doğal dil işleme (NLP) yöntemleriyle analiz eder, dinamik bir JSON envanterini sorgular ve saniyeler içinde kurumsal standartlarda teknik yanıtlar üretir.
 
-Akıllı Filtreleme: Sadece belirlenen ürün grupları ve "fiyat, stok, tonaj" gibi ticari niyet içeren e-postalar işleme alınır.
 
-Dinamik Envanter Yönetimi: inventory.json dosyası üzerinden anlık stok ve USD bazlı fiyat kontrolü sağlanır.
 
-Endüstriyel Terminoloji: Yanıtlar, ağır sanayi lojistik standartlarına (Depo teslimi, fabrika sahası sevk vb.) uygun şekilde üretilir.
+## 🌟 Öne Çıkan Özellikler
 
-🛠️ Teknik Yığın (Tech Stack)
-Dil: Python 3.10+
+* **🛡️ Veri Gizliliği (Local LLM):** Şirket içi envanter ve müşteri verileri buluta çıkmadan, tüm işlemler **Ollama** üzerinden yerel makinede yürütülür.
+* **🎯 Akıllı Niyet Analizi:** Filtreleme mekanizması sayesinde sadece "fiyat, stok, tonaj" gibi ticari niyet içeren mailler işlenir; alakasız içerikler elenir.
+* **📊 Dinamik Envanter Entegrasyonu:** `inventory.json` tabanlı yapı ile stok miktarları, teknik kodlar (S355MC, GZR vb.) ve döviz bazlı fiyatlar anlık sorgulanır.
+* **💼 Endüstriyel Terminoloji:** Yanıtlar; depo teslimi, fabrika sahası sevk ve ton bazlı fiyatlandırma gibi ağır sanayi standartlarına tam uyumludur.
 
-Yapay Zeka: Ollama (Llama 3.2 1B / 3B)
+## 🛠️ Teknoloji Yığını
 
-Protokoller: IMAP (Gelen Posta), SMTP_SSL (Giden Posta)
+| Katman | Teknoloji | Açıklama |
+| :--- | :--- | :--- |
+| **Programlama** | Python 3.10+ | Ana uygulama mantığı ve otomasyon döngüsü. |
+| **Yapay Zeka** | Ollama / Llama 3.2 | Yerel çalışan, düşük gecikmeli dil modeli. |
+| **Veri Yönetimi** | Dynamic JSON | Gerçek zamanlı envanter ve mağaza verisi yönetimi. |
+| **Protokoller** | IMAP & SMTP | Gelen kutusu takibi ve otomatik yanıt iletimi. |
 
-Veri Yönetimi: JSON tabanlı dinamik envanter sistemi
 
-🚀 Kurulum
-Ollama Kurulumu: Yerel sunucunuzu başlatın ve gerekli modeli indirin:
 
-Bash
+## ⚙️ Sistem Mimarisi
+
+Sistem üç temel modül üzerinde kurgulanmıştır:
+
+1.  **StockManager:** Envanter verilerini parse eder ve LLM için teknik bağlam (context) oluşturur.
+2.  **OllamaClient:** Yerel LLM sunucusu ile API üzerinden iletişim kurarak yanıt üretimini yönetir.
+3.  **EmailService:** Gmail üzerinden `UNSEEN` (okunmamış) mailleri tarih filtreli olarak tarar ve yanıt döngüsünü tetikler.
+
+## 🚀 Kurulum ve Çalıştırma
+
+### 1. Gereksinimler
+Sisteminizde **Ollama**'nın yüklü olduğundan emin olun ve gerekli modeli çekin:
+```bash
 ollama serve
 ollama pull llama3.2:1b
-Bağımlılıklar: Gerekli Python kütüphanelerini yükleyin:
 
-Bash
-pip install requests
-Yapılandırma: main.py içerisindeki EMAIL_USER ve EMAIL_PASS alanlarını Gmail "Uygulama Şifresi" ile güncelleyin.
 
-📈 Sistem Akışı
-Sistem, belirli aralıklarla (CHECK_INTERVAL) gelen kutusunu tarar. Teknik bir sac sorgusu tespit edildiğinde, ürün bilgileri envanterden çekilir ve LLM tarafından şu formatta bir yanıt oluşturulur:
+EMAIL_USER = "isminiz@gmail.com"
+EMAIL_PASS = "xxxx xxxx xxxx xxxx" # Gmail Uygulama Şifresi
 
-Sayın Müşterimiz, Erdemir Asitli S355MC RPKK kodlu ürünümüz 11.99 ton stokta olup, ton fiyatı 680 USD'dir. Depo teslimi yapılacaktır. Hayırlı işler dileriz.
+
+# E-posta servis modunda çalıştırmak için:
+python main.py --email
+
+
+
+├── data/
+│   └── inventory.json      # Teknik ürün, stok ve fiyat verileri
+├── src/
+│   ├── llm_client.py       # Ollama API ve model yönetimi
+│   └── stock_manager.py    # Dinamik prompt ve envanter yönetimi
+└── main.py                 # Ana giriş noktası ve servis döngüsü
+
+
+
