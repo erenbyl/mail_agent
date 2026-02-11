@@ -1,1 +1,0 @@
-# src paketi başlatma dosyası

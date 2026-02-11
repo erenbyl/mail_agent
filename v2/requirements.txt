@@ -1,5 +1,0 @@
-# Otomatik E-posta Cevaplama ve Stok Kontrol Sistemi
-# Bağımlılıklar
-
-# HTTP istekleri için (Ollama API iletişimi)
-requests>=2.28.0
