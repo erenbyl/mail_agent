@@ -1,0 +1,22 @@
+{
+  "request_id_123": {
+    "customer_email": "erenboylu1@mail.com",
+    "product": "10mm Rulo Sac",
+    "status": "waiting_supplier",
+    "timestamp": "2026-02-11 14:30"
+  },
+  "<177081222802.7568.6761163449355295277@gmail.com>": {
+    "customer_email": "032390068@ogr.uludag.edu.tr",
+    "subject": "",
+    "product": "Selamlar, projemiz için acil *12mm kalınlığında rulo sac* lazım. Elinizde\r\nvar mı? Varsa 20 ton için fiyat ve termin süresi rica ediyorum. İyi\r\nçalışmalar.\r\n",
+    "status": "completed",
+    "timestamp": "2026-02-11 15:17:14"
+  },
+  "<177081227632.7568.16789186370599212769@gmail.com>": {
+    "customer_email": "032390068@ogr.uludag.edu.tr",
+    "subject": "",
+    "product": "Selamlar, projemiz için acil *12mm kalınlığında rulo sac* lazım. Elinizde\r\nvar mı? Varsa 20 ton için fiyat ve termin süresi rica ediyorum. İyi\r\nçalışmalar.\r\n",
+    "status": "waiting_supplier",
+    "timestamp": "2026-02-11 15:18:02"
+  }
+}
