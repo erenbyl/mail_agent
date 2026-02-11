@@ -11,7 +11,7 @@ from src.stock_manager import StockManager, load_stock_manager
 
 # --- E-POSTA YAPILANDIRMASI ---
 EMAIL_USER = "erenboylu1111@gmail.com" 
-EMAIL_PASS = "eyac kdkl eqlg botk"  # Google Uygulama Şifresi
+EMAIL_PASS = "xxxx xxxx xxxx xxxx"  # Google Uygulama Şifresi
 IMAP_SERVER = "imap.gmail.com"
 SMTP_SERVER = "smtp.gmail.com"
 CHECK_INTERVAL = 30  # Saniye bazında kontrol aralığı
@@ -134,4 +134,5 @@ if __name__ == "__main__":
     if "--email" in sys.argv:
         run_email_service()
     else:
+
         print("❌ Hata: Lütfen '--email' parametresini kullanın.")
