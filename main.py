@@ -10,7 +10,7 @@ from src.tracker import InquiryTracker
 
 # --- YAPILANDIRMA ---
 EMAIL_USER = "erenboylu1111@gmail.com" 
-EMAIL_PASS = "xxx xxxx xxxx xxxx" 
+EMAIL_PASS = "xxxx xxxx xxxx xxxx" 
 SUPPLIER_EMAIL = "erenboylu1@gmail.com" 
 IMAP_SERVER = "imap.gmail.com"
 SMTP_SERVER = "smtp.gmail.com"
@@ -54,12 +54,34 @@ def get_email_body(msg):
     body = ""
     if msg.is_multipart():
         for part in msg.walk():
-            if part.get_content_type() == "text/plain":
-                body = part.get_payload(decode=True).decode(errors='ignore')
+            content_type = part.get_content_type()
+            content_disposition = str(part.get("Content-Disposition"))
+            
+            # Sadece düz metin kısımlarını al, ekleri (attachment) atla
+            if content_type == "text/plain" and "attachment" not in content_disposition:
+                charset = part.get_content_charset() # Karakter setini al
+                payload = part.get_payload(decode=True)
+                
+                if charset:
+                    try:
+                        body = payload.decode(charset)
+                    except:
+                        body = payload.decode('utf-8', errors='ignore')
+                else:
+                    body = payload.decode('utf-8', errors='ignore')
                 break
     else:
-        body = msg.get_payload(decode=True).decode(errors='ignore')
-    return body
+        charset = msg.get_content_charset()
+        payload = msg.get_payload(decode=True)
+        if charset:
+            try:
+                body = payload.decode(charset)
+            except:
+                body = payload.decode('utf-8', errors='ignore')
+        else:
+            body = payload.decode('utf-8', errors='ignore')
+            
+    return body.strip()
 
 def process_email_logic(raw_body, sender_email, subject, llm_client, stock_manager, customer_manager, tracker):
     """Müşteriden gelen maili analiz eder ve duruma göre aksiyon alır."""

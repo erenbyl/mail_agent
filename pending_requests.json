@@ -18,5 +18,12 @@
     "product": "Selamlar, projemiz için acil *12mm kalınlığında rulo sac* lazım. Elinizde\r\nvar mı? Varsa 20 ton için fiyat ve termin süresi rica ediyorum. İyi\r\nçalışmalar.\r\n",
     "status": "waiting_supplier",
     "timestamp": "2026-02-11 15:18:02"
+  },
+  "<177081365880.19432.9411835339284998700@gmail.com>": {
+    "customer_email": "032390068@ogr.uludag.edu.tr",
+    "subject": "",
+    "product": "selamlar Eren Bey, projemiz için acil *12mm kalınlığında rulo sac* lazım.\r\nElinizde 20 ton var mıdır? Varsa fiyat ve termin süresi rica ediyorum.",
+    "status": "completed",
+    "timestamp": "2026-02-11 15:41:05"
   }
 }

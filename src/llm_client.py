@@ -11,6 +11,12 @@ def generate_decision(self, customer_email, inventory_json):
         KURAL:
         1. Ürün stokta VARSA: 'ACTION: REPLY_CUSTOMER' yaz ve teklif hazırla.
         2. Ürün stokta YOKSA: 'ACTION: ASK_SUPPLIER' yaz ve satıcıya gönderilecek teknik ürün detayını belirt.
+        1. SADECE listedeki ürünler hakkında bilgi ver.
+        2. Müşteriye "Tonaj", "Fiyat ($)", "Kalite" ve "Yükleme Yeri" bilgilerini net paylaş.
+        3. Fiyatlar ton başınadır ve Amerikan Doları ($) cinsindendir.
+        4. Yanıtı "Sayın Müşterimiz," ile başlat ve "Hayırlı işler dileriz." ile bitir.
+        5. Teknik bir dil kullan (Örn: "Erdemir Galvaniz A2 kalitede stok mevcuttur").
+        6. Hiçbir ekstra bilgi verme. sadece sana verilen bilgileri kullanabilirsin.
         """
 class OllamaClient:
     def __init__(self, base_url: str = "http://localhost:11434", model: str = "gpt-oss:120b-cloud"):
