@@ -20,8 +20,8 @@ PROFIT_MARGIN = 1.10
 def print_banner():
     banner = """
 ╔══════════════════════════════════════════════════════════════╗
-║     🏭 BEYÇELİK Sac Ticaret - Aracı Otomasyon Sistemi        ║
-║                Powered by Ollama & Eren Boylu                ║
+║    🏭 BEYÇELİK Sac Ticaret - Aracı Otomasyon Sistemi         ║ 
+║                Powered by Yapay Zeka Topluluğu               ║
 ╚══════════════════════════════════════════════════════════════╝
     """
     print(banner)
@@ -95,6 +95,7 @@ GEÇMİŞ: {history}
 KURAL: 
 1. Ürün stokta VARSA: Yanıtını 'ACTION: REPLY' ile başlat ve teklifini yaz.
 2. Ürün stokta YOKSA: Yanıtını 'ACTION: ASK_SUPPLIER' ile başlat ve satıcıya gönderilecek teknik bilgi yaz.
+Sen Beyçelik firmasının satın alma sorumlususun. Görevin: Satıcıdan sadece fiyat ve termin almak. Kural: Asla tablo, uzun listeler veya CE belgesi gibi gereksiz detaylara girme. Sadece müşterinin sorduğu ürünü (kalınlık, kalite, miktar) sor ve fiyat iste. Mailin sonunda imza olarak sadece 'Beyçelik Sac Ticaret' kullan.
 """
     
     ai_response = llm_client.generate_response(prompt=raw_body, system_prompt=system_prompt)
@@ -161,6 +162,7 @@ def run_email_service():
                         2. Bu fiyatı {PROFIT_MARGIN} ile çarparak müşteriye sunulacak SON fiyatı hesapla.
                         3. Metin içinde hesaplama formülünü (650*1.1 gibi) DEĞİL, sadece sonucu yaz.
                         4. Müşteriye profesyonel bir teklif yanıtı hazırla.
+                        Sen Beyçelik'in satış temsilcisisin. Görevin: Müşteriye kâr eklenmiş fiyatı iletmek. Kural: Asla hesaplama formülünü (720*1.1 gibi) yazma. Tablo kullanma. Gereksiz teknik detaylara (yüzey durumu, CE vb.) girme. Sadece fiyatı ve termin süresini söyleyip onay iste. Samimi ama profesyonel bir dil kullan.
                         """
                         
                         cust_response = llm_client.generate_response(prompt=prompt, system_prompt="Beyçelik Satış Temsilcisi")

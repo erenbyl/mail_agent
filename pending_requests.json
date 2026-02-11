@@ -25,5 +25,26 @@
     "product": "selamlar Eren Bey, projemiz için acil *12mm kalınlığında rulo sac* lazım.\r\nElinizde 20 ton var mıdır? Varsa fiyat ve termin süresi rica ediyorum.",
     "status": "completed",
     "timestamp": "2026-02-11 15:41:05"
+  },
+  "<177081449638.12236.3626236866746726257@gmail.com>": {
+    "customer_email": "032390068@ogr.uludag.edu.tr",
+    "subject": "",
+    "product": "Selamlar Eren Bey, projemizde kullanmak üzere *15mm kalınlığında, S235JR\r\nkalite rulo sac* aramaktayız. Stoklarınızda 30 ton miktarında mevcut mudur?\r\nVarsa fiyat ve termin rica ediyorum.",
+    "status": "waiting_supplier",
+    "timestamp": "2026-02-11 15:55:02"
+  },
+  "<177081454699.12236.11855283052127213803@gmail.com>": {
+    "customer_email": "032390068@ogr.uludag.edu.tr",
+    "subject": "",
+    "product": "Selamlar Eren Bey, projemizde kullanmak üzere *15mm kalınlığında, S235JR\r\nkalite rulo sac* aramaktayız. Stoklarınızda 30 ton miktarında mevcut mudur?\r\nVarsa fiyat ve termin rica ediyorum",
+    "status": "completed",
+    "timestamp": "2026-02-11 15:55:53"
+  },
+  "<177081501757.2044.10327057651530581296@gmail.com>": {
+    "customer_email": "032390068@ogr.uludag.edu.tr",
+    "subject": "",
+    "product": "Selamlar Eren Bey, projemiz için acil *15mm kalınlığında S235JR rulo sac*\r\nlazım. 30 ton için fiyat ve termin süresi verebilir misiniz? İyi\r\nçalışmalar.",
+    "status": "completed",
+    "timestamp": "2026-02-11 16:03:45"
   }
 }
