@@ -1,6 +1,6 @@
-# 🏭 Industrial-LLM: Beyçelik E-posta Otomasyon Ajanı
+# 🏭 Industrial-LLM: E-posta Otomasyon Ajanı
 
-Bu proje, **Beyçelik Sac Ticaret** için geliştirilmiş, yerel bir LLM (Llama 3.2) tarafından yönetilen akıllı bir e-posta asistanıdır. Sistem, gelen müşteri taleplerini analiz eder, envanter kontrolü yapar ve stokta bulunmayan ürünler için tedarikçilerle (supplier) iletişim sürecini otomatik olarak yönetir. [cite: 2026-02-11]
+Bu proje, ** Sac Ticaret** için geliştirilmiş, yerel bir LLM (Llama 3.2) tarafından yönetilen akıllı bir e-posta asistanıdır. Sistem, gelen müşteri taleplerini analiz eder, envanter kontrolü yapar ve stokta bulunmayan ürünler için tedarikçilerle (supplier) iletişim sürecini otomatik olarak yönetir. [cite: 2026-02-11]
 
 
 
